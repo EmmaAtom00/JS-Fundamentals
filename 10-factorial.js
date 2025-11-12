@@ -1,8 +1,9 @@
 const { argv } = require("node:process");
-let k = Number(argv[2]);
-if (isNaN(k)) k = 1;
-function recursion(number, n) {
-  if (n == 0) return number;
-  return recursion(number * n - 1, n - 1);
+const k = Number(argv[2]); // use const since you’re not reassigning it
+
+function factorial(n) {
+  if (isNaN(n) || n === 0) return 1;
+  return n * factorial(n - 1);
 }
-console.log(recursion(k, k));
+
+console.log(factorial(k));
